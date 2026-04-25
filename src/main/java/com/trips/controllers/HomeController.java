@@ -62,14 +62,16 @@ public class HomeController {
 			trip1.setFecha(sdf.parse("10-05-2026"));
 			trip1.setCosto(10.0);
 			trip1.setDestacado(0);
+			trip1.setImagen("trip01.png");
 			
 			Trip trip2 = new Trip();
 			trip2.setId(2);
-			trip2.setNomTrip("Rapel En Volcatenando");
-			trip2.setDescripcion("Hacer Rapel en curcuitos....");
+			trip2.setNomTrip("Caminatas en Chalatenando");
+			trip2.setDescripcion("Bonitas y exigentes caminatas en las montañas de Chalatenango");
 			trip2.setFecha(sdf.parse("10-05-2026"));
 			trip2.setCosto(10.0);
 			trip2.setDestacado(1);
+			trip2.setImagen("trip03.png");
 			
 			lista.add(trip1);
 			lista.add(trip2);

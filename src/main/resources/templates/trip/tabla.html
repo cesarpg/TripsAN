@@ -19,6 +19,8 @@
 			<td>Descripcion</td>
 			<td>Calificacion</td>
 			<td>Destacado</td>
+			<td>Detalle</td>
+			<td>Eliminar</td>
 
 		</tr>
 		<tr th:each="trip : ${trips}" >
@@ -35,6 +37,12 @@
 	    <td>
 	    	<span th:if="${trip.destacado == 1}" class="badge bg-success" >si</span>
 	    	<span th:unless="${trip.destacado == 1}" class="badge bg-danger"  >No</span>
+	    </td>
+	   	<td>
+	    	<a th:href="@{/trips/view/{id} (id=${trip.id}) }" class="btn btn-success" >Detalle</a>
+	    </td>
+	   	<td>
+	    	<a th:href="@{/trips/delete(id=${trip.id}) }" class="btn btn-danger" >Eliminar</a>
 	    </td>
 
 		</tr>

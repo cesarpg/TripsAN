@@ -24,7 +24,8 @@ public class HomeController {
 	@GetMapping("/")
 	public String mostrarHome (Model model) {
 		
-		model.addAttribute("mensaje", "Hola mundo");
+		List<Trip> lista  = tripServices.buscarTodo();
+		model.addAttribute("trips", lista);
 
 		return "home";
 	}

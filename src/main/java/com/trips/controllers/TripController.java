@@ -24,9 +24,9 @@ public class TripController {
 		
 		Trip trip = servicTrip.buscarPorId(idTrip);
 		System.err.println("Trip: " + trip);
-		model.addAttribute("trip", trip.getId());
+		model.addAttribute("trip", trip);
 		
-		return "detalle";
+		return "trip/detalle";
 	}
 	
 	

@@ -11,8 +11,8 @@
     <!-- Bootstrap core CSS -->
     <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="bootstrap/css/jumbotron.css" rel="stylesheet">
-    <link href="bootstrap/css/sticky-footer-navbar.css" rel="stylesheet">
+    <link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
+    <link th:href="@{/bootstrap/css/sticky-footer-navbar.css}" rel="stylesheet">
   </head>
 
   <body>
@@ -43,46 +43,35 @@
     </header>
 
     <main role="main">
-
-      <!-- Main jumbotron for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <div class="container">
-          <h3>Encuentra los mejores Trips en El Salvador.</h3>
-          Puedes buscar por descripción y categoría.
-          <form class="form-inline">
-            <input type="text" class="form-control mb-3" id="exampleFormControlInput1" placeholder="Escriba una búsqueda">&nbsp;
-            <select class="custom-select custom-select mb-3">
-              <option selected>Seleccione una categoría</option>
-              <option value="1">En la montaña</option>
-              <option value="2">En la Ciudad</option>
-              <option value="3">En los pueblos</option>
-              <option value="4">En las playas</option>
-            </select>&nbsp;
-            <button type="submit" class="btn btn-primary mb-3">Buscar</button>
-          </form>
-        </div>
-      </div>
       <hr>
-
       <div class="container"> 
-        <h2 class="font-weight-bold text-center text-capitalize">DESTACADOS</h2>
-        <hr>
-   
-        <div class="row" th:each="trip : ${trips}">
+
+        <div class="row">
           <div class="col-md-3">            
-            <img class="rounded mx-auto d-block" th:src="@{/images/{img} (img=${trip.imagen})} " alt="Generic placeholder image" width="200" height="190">            
+            <img class="rounded mx-auto d-block" th:src="@{/images/{img} (img=${trip.imagen})}" alt="Generic placeholder image" width="220" height="220">           
           </div>
           <div class="col-md-9">
-            <h2 th:text=${trip.nomTrip}></h2>
-            <h6 class="card-title"><strong>Categoría: </strong> <span>Aventura</span></h6>
-            <h6 class="card-title"><strong>Publicado: </strong> <span th:text=${trip.fecha}></span></h6>                
-            <p th:text=${trip.descripcion}></p>
-            <p><a class="btn btn-secondary" th:href="@{/trips/view/{id} (id=${trip.id})}" role="button">Ver detalles &raquo;</a></p>            
+            <div class="card">
+              <h4 class="card-header">Trip: <strong th:text="${trip.nomTrip}" ></strong></h4>              
+              <div class="card-body">
+                <h5 class="card-title"><strong>Categoría: </strong> <span>Nombre la categoría</span></h5>
+                <h6 class="card-title"><strong>Publicado: </strong> <span th:text="${trip.fecha}" ></span></h6>                
+                <h6 class="card-title"><strong>Costo: </strong><span th:text="${trip.costo}"></span></h6>
+                <p class="card-text" th:text="${trip.descripcion}"></p>
+                
+                <div class="card bg-light mb-3" >
+                  <div class="card-body">
+                    <h5 class="card-title">Detalles del Trip</h5>
+                    <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                  </div>
+                </div>   
+                <a class="btn btn-primary" href="#" role="button" title="Quiero comprar este Trip."><i class="fas fa-file" aria-hidden="true"></i> Comprar</a>                            
+              </div>
+            </div>  
           </div>
-        </div>          
-		  <hr>	
-      </div> <!-- /container -->
+        </div>
 
+      </div>
     </main>
 
     <footer class="footer">
